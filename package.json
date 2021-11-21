@@ -2,20 +2,38 @@
   "private": "true",
   "license": "MIT",
   "scripts": {
-    "sst:start": "sst start",
-    "sst:deploy": "sst deploy",
-    "sst:remove": "sst remove",
-    "generate-env-file": "esr ./scripts/generate-env-file.ts"
+    "start": "sst start",
+    "deploy": "sst deploy && yarn run export-env",
+    "remove": "sst remove",
+    "test": "jest --setupFiles dotenv/config",
+    "export-env": "esr ./scripts/export-env.ts",
+    "tail-eventbridge": "esr ./scripts/tail-eventbridge.ts"
   },
   "devDependencies": {
-    "@aws-sdk/client-ssm": "3.42.0",
-    "@serverless-stack/cli": "0.53.0",
-    "@serverless-stack/resources": "0.53.0",
+    "@aws-sdk/client-sqs": "3.43.0",
+    "@aws-sdk/client-ssm": "3.43.0",
+    "@serverless-stack/cli": "0.53.2",
+    "@serverless-stack/resources": "0.53.2",
     "@tsconfig/node14": "1.0.1",
-    "@types/node": "16.11.9",
+    "@types/aws-lambda": "8.10.85",
+    "@types/cross-spawn": "6.0.2",
+    "@types/faker": "5.5.9",
+    "@types/node": "16.11.10",
+    "@types/node-fetch": "2.5.12",
+    "async-wait-until": "2.0.9",
+    "cross-spawn": "7.0.3",
     "esbuild-runner": "2.2.1",
+    "faker": "5.5.3",
+    "lumigo-cli": "0.48.4",
+    "node-fetch": "2.6.6",
     "typescript": "4.5.2",
     "yargs": "17.2.1"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "3.43.0",
+    "@aws-sdk/client-eventbridge": "3.43.0",
+    "@aws-sdk/lib-dynamodb": "3.43.0",
+    "zod": "3.11.6"
   },
   "eslintConfig": {
     "extends": [
@@ -25,5 +43,16 @@
   "prettier": {
     "semi": false,
     "singleQuote": true
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "@/(.*)": "<rootDir>/src/$1"
+    },
+    "transform": {
+      "\\.ts$": "esbuild-runner/jest"
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/testing/custom-matchers/index.ts"
+    ]
   }
 }

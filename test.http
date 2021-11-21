@@ -1,0 +1,7 @@
+POST {{$dotenv API_ENDPOINT}}/orders
+Content-Type: application/json
+
+{
+    "orderId": "{{$guid}}",
+    "restaurantName": "some restaurant name"
+}

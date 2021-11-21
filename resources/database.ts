@@ -1,20 +1,14 @@
 import * as sst from '@serverless-stack/resources'
-import * as cdk from '@aws-cdk/core'
 import * as dynamodb from '@aws-cdk/aws-dynamodb'
-
 import { Stack } from '@resources/Stack'
 
-export const createDatabase = (
-  stack: Stack,
-  removalPolicy: cdk.RemovalPolicy
-) =>
+export const createDatabase = (stack: Stack) =>
   new sst.Table(stack, 'table', {
     fields: {
-      name: sst.TableFieldType.STRING,
+      orderId: sst.TableFieldType.STRING,
     },
-    primaryIndex: { partitionKey: 'name' },
+    primaryIndex: { partitionKey: 'orderId' },
     dynamodbTable: {
-      removalPolicy: removalPolicy,
       billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
     },
   })
