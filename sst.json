@@ -1,0 +1,5 @@
+{
+  "name": "sst-testing",
+  "region": "ap-southeast-2",
+  "main": "resources/index.ts"
+}

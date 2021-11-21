@@ -1,0 +1,12 @@
+{
+  "extends": "@tsconfig/node14",
+  "include": ["resources", "src", "scripts"],
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@resources/*": ["resources/*"],
+      "@/*": ["src/*"]
+    },
+    "resolveJsonModule": true
+  }
+}

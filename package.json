@@ -1,0 +1,29 @@
+{
+  "private": "true",
+  "license": "MIT",
+  "scripts": {
+    "sst:start": "sst start",
+    "sst:deploy": "sst deploy",
+    "sst:remove": "sst remove",
+    "generate-env-file": "esr ./scripts/generate-env-file.ts"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-ssm": "3.42.0",
+    "@serverless-stack/cli": "0.53.0",
+    "@serverless-stack/resources": "0.53.0",
+    "@tsconfig/node14": "1.0.1",
+    "@types/node": "16.11.9",
+    "esbuild-runner": "2.2.1",
+    "typescript": "4.5.2",
+    "yargs": "17.2.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "serverless-stack"
+    ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  }
+}
