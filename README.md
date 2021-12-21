@@ -2,7 +2,7 @@
 
 A small serverless application using [serverless stack (sst)](https://docs.serverless-stack.com/) demonstrating one approach to integration testing serverless applications.
 
-![application](./assets/diagram.svg)
+![application](./assets/diagram.png)
 
 ## Deploying
 
