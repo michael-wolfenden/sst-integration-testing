@@ -12,8 +12,8 @@
   "devDependencies": {
     "@aws-sdk/client-sqs": "3.43.0",
     "@aws-sdk/client-ssm": "3.43.0",
-    "@serverless-stack/cli": "0.53.2",
-    "@serverless-stack/resources": "0.53.2",
+    "@serverless-stack/cli": "0.54.4",
+    "@serverless-stack/resources": "0.54.4",
     "@tsconfig/node14": "1.0.1",
     "@types/aws-lambda": "8.10.85",
     "@types/cross-spawn": "6.0.2",
